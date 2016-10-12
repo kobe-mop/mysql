@@ -1,0 +1,15 @@
+mysql -u root -p #登陆
+
+create database mybase; #建立数据库
+
+use mybase; #连接数据库
+
+create table users(userid int, username varchar(20), password varchar(32), primary key(userid)); #建立表
+
+insert into users(userid, username, password) values(1, 'mysql', 'mysql'); #增数据
+
+select userid, username, password from users; #查看表
+
+update users set password = 'password' where userid = 1; #改变表
+
+delete from users where userid = 1; # 删除表
