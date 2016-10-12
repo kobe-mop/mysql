@@ -2,6 +2,8 @@ mysql -u root -p #登陆
 
 create database mybase; #建立数据库
 
+drop database mybase; 删除数据库
+
 use mybase; #连接数据库
 
 create table users(userid int, username varchar(20), password varchar(32), primary key(userid)); #建立表
