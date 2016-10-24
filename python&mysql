@@ -1,0 +1,37 @@
+import pymysql 
+
+def connDB():
+    #连接数据库 
+    conn=pymysql.connect(host='localhost',user='root',passwd='',db='first') 
+    cur=conn.cursor()
+    return (conn,cur) 
+
+def exeUpdate(conn,cur,sql):
+    #更新语句，可执行Update，Insert语句 
+    sta=cur.execute(sql) 
+    conn.commit() 
+    return (sta) 
+
+def exeDelete(conn,cur,IDs):
+    #删除语句，可批量删除 
+    for eachID in IDs.split(' '):
+        sta=cur.execute('delete from students where Id=%d'%int(eachID)) 
+        conn.commit() 
+        return (sta) 
+
+def exeQuery(cur,sql):
+    #查询语句 
+    cur.execute(sql) 
+    result = cur.fetchone() 
+    return (result) 
+
+def connClose(conn,cur):
+    #关闭所有连接 
+    cur.close() 
+    conn.close() 
+
+conn = connDB()[0] 
+cur = connDB()[1] 
+exeUpdate(conn,cur,"INSERT INTO first_note (idfirst_note, note_title , note_content ) VALUES (0,'Title','This is the content');")
+print(exeQuery(cur,"SELECT note_title ,note_content FROM first_note;")) 
+connClose() 
