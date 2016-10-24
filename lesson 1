@@ -1,17 +1,35 @@
-mysql -u root -p #登陆
+#登陆
+mysql -u root -p 
 
-create database mybase; #建立数据库
+#建立数据库
+create database mybase; 
 
-drop database mybase; 删除数据库
+#删除数据库
+drop database mybase; 
 
-use mybase; #连接数据库
+#连接数据库
+use mybase; 
 
-create table users(userid int, username varchar(20), password varchar(32), primary key(userid)); #建立表
+#建立表
+create table users(userid int, username varchar(20), password varchar(32), primary key(userid)); 
 
-insert into users(userid, username, password) values(1, 'mysql', 'mysql'); #增数据
+#增数据
+insert into users(userid, username, password) values(1, 'mysql', 'mysql'); 
 
-select userid, username, password from users; #查看表
+#查看表
+select userid, username, password from users; 
 
-update users set password = 'password' where userid = 1; #改变表
+#查看表属性
+desc users;
 
-delete from users where userid = 1; # 删除表
+#改变表
+update users set password = 'password' where userid = 1; 
+
+# 删除表
+delete from users where userid = 1; 
+
+#修改密码，pab12（旧密码）djg345（新密码）
+mysqladmin -uroot -pab12 password djg345 
+
+#增加新用户 grant select on 数据库.* to 用户名@登录主机 identified by "密码" 
+grant select,insert,update,delete on mydb.* to test2@localhost identified by "abc"; 
