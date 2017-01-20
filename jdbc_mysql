@@ -1,3 +1,17 @@
+#建立数据库
+create database mybase; 
+
+#连接数据库
+use mybase; 
+
+#建立表
+create table users(userid int, username varchar(20), password varchar(32), primary key(userid)); 
+
+#增数据
+insert into users(userid, username, password) values(1, 'mysql', 'mysql'); 
+
+*************************************************
+
 #Demo.java
 
 import java.sql.ResultSet;  
@@ -10,7 +24,7 @@ public class Demo {
     static ResultSet ret = null;  
   
     public static void main(String[] args) {  
-        sql = "select *from users";//SQL语句 
+        sql = "select *from users";//SQL语句 （对应table的名字）
         db1 = new DBHelper(sql);//创建DBHelper对象  
   
         try {  
@@ -30,6 +44,8 @@ public class Demo {
   
 } 
 
+*************************************************
+
 #DBHelper.java
 
 import java.sql.Connection;  
@@ -38,7 +54,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;  
   
 public class DBHelper {  
-    public static final String url = "jdbc:mysql://localhost:3306/mybase";  
+    public static final String url = "jdbc:mysql://localhost:3306/mybase";  //（对应database的名字）
     public static final String name = "com.mysql.jdbc.Driver";  
     public static final String user = "root";  
     public static final String password = "root";  
