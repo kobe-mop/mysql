@@ -1,3 +1,14 @@
+1、mysql安装之后默认root密码是空
+输入mysql -uroot 即可进去mysql
+进去之后怎样设置初始密码呢：
+执行
+
+use mysql ;
+update user set password=password("new_pass") where user="root"; 
+flush privileges; 
+exit ;
+
+**************************************************
 #登陆
 mysql -u root -p 
 (账号和密码都是 root)
