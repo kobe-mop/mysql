@@ -1,2 +1,2 @@
 # mysql
-mysql command
+mysql密码 root
