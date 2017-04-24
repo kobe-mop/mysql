@@ -1,2 +1,2 @@
-# mysql
-mysql密码 root
+# mysql密码是root
+mysql密码：root
